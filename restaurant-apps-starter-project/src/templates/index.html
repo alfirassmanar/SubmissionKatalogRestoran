@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Apps</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <style>
+  body, h1, p {
+      margin: 0;
+      padding: 0;
+    }
+  
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    max-width: 1050px;
+    width: 90%;
+    margin: auto;
+}
+
+.navbar {
+    width: 100%;
+    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 1.2rem;
+    color: #0e2431;
+}
+
+.menu-items {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    min-height: 44px;
+}
+
+.menu-items li {
+    padding: 10px 15px;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: #0e2431;
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    width: 44px; 
+    height: 44px; 
+}
+
+
+.menu-items a:hover {
+    color: #0e2431;
+    font-weight: bolder;
+}
+
+.hamburger-lines {
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    right: 20px;
+    padding: 10px;
+}
+
+.hamburger-lines .line {
+    background-color: #0e2431;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.checkbox {
+    display: none;
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+
+}
+
+@media (max-width: 768px) {
+    .menu-items {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgb(255, 255, 255);
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        text-align: center;
+        display: none;
+    }
+
+     .checkbox:checked + .hamburger-lines + .menu-items {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .hamburger-lines {
+        display: flex;
+    }
+
+    .checkbox {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        opacity: 0;
+        z-index: 9;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 769px) {
+  #nav-toggle-button {
+    transform: translateX(-9999px); 
+  }
+}
+ 
+/* Carousel */
+  .hero-carousel img {
+    width: 100%; 
+    margin-top: 100px;
+    height: auto;
+  }
+  
+  /* Restaurant Cards */
+  .restaurant-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .restaurant-card img {
+    border-radius: 8px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .restaurant-card h2-name {
+    font-size: 1.4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  .restaurant-card p-city {
+      position: absolute;
+      top: 20px; 
+      left: 20px; 
+      background-color: #2d7f0b;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 1rem;
+      min-width: 44px; 
+      min-height: 44px; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .restaurant-card p-rating {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .restaurant-card .city {
+      font-weight: 500;
+    }
+
+    .restaurant-card .rating {
+      font-size: 0.9rem;
+      color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .restaurant-card .rating i {
+      color: #ffd700; 
+      margin-right: 5px;
+    }
+
+    .restaurant-card:hover {
+      transform: scale(1.03); 
+    }
+
+    .hero-carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .hero-slide {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background-color: #f0f0f0;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-caption h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-caption p {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .close-button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .description-button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+      color: #007bff;
+      text-decoration: underline;
+      width: 44px;
+      height: 44px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto; 
+      margin-right: auto; 
+    }
+
+    .description-button:hover {
+      color: #0056b3;
+    }
+
+    .modal-description {
+      text-align: justify;
+    }
+
+     /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    footer p {
+      margin: 0;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      margin: 0 auto; 
+    }
+
+      @media (max-width: 600px) {
+      .card-container {
+          grid-template-columns: 1fr; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <style>
+   .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: #bf1722;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+    }
+  </style>
+  <a href="#main-content" class="skip-to-content">Skip to Content</a>
+
+  <!-- Navbar -->
+  <header id="main-content">
+    <nav class="navbar">
+      <div class="container">
+          <div class="nav-container">
+              <div class="logo">Sukamaju-Restoran</div>
+              <input type="checkbox" class="checkbox" id="nav-toggle-checkbox">
+              <button id="nav-toggle-button" class="hamburger-lines" aria-label="Toggle Navigation" tabindex="0" role="button">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+              </button>              
+              <ul class="menu-items">
+                  <li><a href="http://localhost:8080/">Home</a></li>
+                  <li><a href="#">Favorite</a></li>
+                  <li><a href="https://github.com/alfirassmanar">AboutUs</a></li>
+                  <li><a href="https://wa.me/+6282331016638">Contact</a></li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main id="main-content">
+    <section>
+      <div class="hero-carousel">
+        <div class="hero-slide">
+          <img src="./images/heros/hero-image_1.jpg" alt="Hero Image 1">
+          <div class="hero-caption">
+            <h1>Selamat datang di Sukamaju Apps</h1>
+            <p>Discover the best restaurants near you</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-container">
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 - Sukamaju Apps</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+  <!-- Manual Script -->
+  <script>
+    fetch('../data/DATA.json')
+    .then(response => response.json())
+    .then(data => {
+      const cardContainer = document.querySelector('.card-container');
+      data.restaurants.forEach(restaurant => {
+        const card = document.createElement('div');
+        card.classList.add('restaurant-card');
+
+        const img = document.createElement('img');
+        img.src = restaurant.pictureId;
+        img.alt = restaurant.name;
+
+        const name = document.createElement('h2-name');
+        name.textContent = restaurant.name;
+
+        const city = document.createElement('p-city');
+        city.textContent = restaurant.city;
+        
+        const rating = document.createElement('p-rating');
+        rating.textContent = `Rating: ${restaurant.rating}`;
+
+        const descriptionButton = document.createElement('button');
+        descriptionButton.textContent = 'Selengkapnya';
+        descriptionButton.classList.add('description-button');
+
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        const modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
+
+        const closeButton = document.createElement('span');
+        closeButton.classList.add('close-button');
+        closeButton.innerHTML = '&times;';
+
+        const modalDescription = document.createElement('p');
+        modalDescription.classList.add('modal-description');
+        modalDescription.textContent = restaurant.description;
+
+        descriptionButton.addEventListener('click', function() {
+          modal.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', function() {
+          modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+          if (event.target === modal) {
+            modal.style.display = 'none';
+          }
+        });
+
+        modalContent.appendChild(closeButton);
+        modalContent.appendChild(modalDescription);
+        modal.appendChild(modalContent);
+        card.appendChild(modal);
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(city);
+        card.appendChild(rating);
+        card.appendChild(descriptionButton);
+
+        cardContainer.appendChild(card);
+      });
+    })
+    .catch(error => console.error('Error fetching restaurant data:', error));
+
+  </script>
+
+  <script>
+      const heroSlide = document.querySelector('.hero-slide');
+      window.addEventListener('scroll', function() {
+      const scrollPosition = window.pageYOffset;
+      heroSlide.style.transform = `translateY(-${scrollPosition * 0.5}px)`;
+    });
+  </script>
+
+  <script>
+        document.getElementById('nav-toggle-button').addEventListener('click', function() {
+        toggleMenu(); 
+    });
+  </script>
+</body>
+</html>

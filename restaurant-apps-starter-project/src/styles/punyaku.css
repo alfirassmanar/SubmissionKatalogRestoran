@@ -1,0 +1,90 @@
+/* punyaku.css */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    background-color: white;
+    color: black;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 50px;
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .navbar .logo, .navbar .menu {
+    display: flex;
+  }
+  
+  .navbar .logo {
+    flex-grow: 1;
+    justify-content: flex-start;
+    font-size: 20px;
+  }
+  
+  .navbar .menu {
+    flex-grow: 0.5;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar .menu a {
+    color: black;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 100px;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar .menu a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Hamburger Menu */
+  .hamburger-menu {
+    display: none; /* Hide by default for desktop */
+  }
+  
+  /* Hero Carousel */
+  .hero-carousel img {
+    width: 100%; /* Full width */
+    height: auto;
+  }
+  
+  /* Restaurant Cards */
+  .card-img {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .card-img > div {
+    margin: 0 10px;
+  }
+  
+  .card-img img {
+    border-radius: 8px;
+    width: 300px;
+  }
+  
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
